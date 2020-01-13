@@ -1,6 +1,13 @@
 package ru.job4j.calculator;
 
+/**
+ * Calculates an arithmetic operation
+ */
 public class Calculator {
+    /**
+     * Main method with arithmetic operations
+     * @param args array of params
+     */
     public static void main(String[] args) {
         add(1, 1);
         div(4, 2);
