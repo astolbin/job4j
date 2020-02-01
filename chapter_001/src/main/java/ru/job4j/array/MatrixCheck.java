@@ -5,12 +5,10 @@ public class MatrixCheck {
         boolean result = false;
 
         for (int i = 0; i < board.length; i++) {
-            if (board[i][0] == 'X' && monoHorizontal(board, i)) {
-                result = true;
-                break;
-            }
-
-            if (board[0][i] == 'X' && monoVertical(board, i)) {
+            if (
+                (board[i][0] == 'X' && monoHorizontal(board, i)) ||
+                (board[0][i] == 'X' && monoVertical(board, i))
+            ) {
                 result = true;
                 break;
             }
