@@ -5,10 +5,8 @@ import java.util.Arrays;
 public class Merge {
     public int[] merge(int[] left, int[] right) {
         int[] rsl = new int[left.length + right.length];
-
         int indexLeft = 0;
         int indexRight = 0;
-
         while ((indexLeft + indexRight) < rsl.length) {
             if (
                 indexLeft < left.length
@@ -21,7 +19,6 @@ public class Merge {
                 indexRight++;
             }
         }
-
         return rsl;
     }
 

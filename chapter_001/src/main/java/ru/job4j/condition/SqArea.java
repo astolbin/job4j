@@ -8,7 +8,6 @@ public class SqArea {
     public static double square(int p, int k) {
         double Length = (p * k) / ((k + 1) * 2);
         double Height = Length / k;
-
         return Length * Height;
     }
 }

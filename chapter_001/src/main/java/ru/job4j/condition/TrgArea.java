@@ -7,7 +7,6 @@ public class TrgArea {
 
     public static double area(double a, double b, double c) {
         double perimeter = (a + b + c) / 2;
-
         return Math.sqrt(
             perimeter * (perimeter - a) * (perimeter - b) * (perimeter - c)
         );

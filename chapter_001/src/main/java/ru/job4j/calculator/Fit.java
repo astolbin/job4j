@@ -4,7 +4,6 @@ public class Fit {
     public static void main(String[] args) {
         double man = manWeight(180);
         System.out.println("Man 180 is " + man);
-
         double woman = womanWeight(170);
         System.out.println("Woman 170 is " + woman);
     }
