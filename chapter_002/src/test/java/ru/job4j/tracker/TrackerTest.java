@@ -55,4 +55,13 @@ public class TrackerTest extends TestCase {
         Item[] items = tracker.findByName("Test 4");
         assertThat(items.length, is(0));
     }
+
+    public void testWhenReplace() {
+        Item bug = new Item("Bug");
+        tracker.add(bug);
+        String id = bug.getId();
+        Item bugWithDesc = new Item("Bug with description");
+        tracker.replace(id, bugWithDesc);
+        assertThat(tracker.findById(id).getName(), is("Bug with description"));
+    }
 }
