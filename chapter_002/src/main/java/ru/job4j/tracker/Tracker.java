@@ -59,4 +59,13 @@ public class Tracker {
         itemForReplace.setId(items[index].getId());
         items[index] = itemForReplace;
     }
+
+    public void delete(String id) {
+        int index = indexOf(id);
+        int start = index + 1;
+        int size = position - index;
+        System.arraycopy(items, start, items, index, size);
+        items[position - 1] = null;
+        position--;
+    }
 }

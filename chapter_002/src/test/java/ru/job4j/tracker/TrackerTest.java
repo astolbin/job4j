@@ -64,4 +64,15 @@ public class TrackerTest extends TestCase {
         tracker.replace(id, bugWithDesc);
         assertThat(tracker.findById(id).getName(), is("Bug with description"));
     }
+
+    public void testWhenDelete() {
+        Item bug = new Item("Bug");
+        tracker.add(bug);
+        String id = bug.getId();
+        tracker.delete(id);
+
+        Item result = tracker.findById(id);
+        assertNull(result.getId());
+        assertThat(result.getName(), is(""));
+    }
 }
