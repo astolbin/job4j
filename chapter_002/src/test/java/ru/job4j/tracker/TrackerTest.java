@@ -78,9 +78,21 @@ public class TrackerTest extends TestCase {
         Item bug = new Item("Bug");
         tracker.add(bug);
         String id = bug.getId();
-        tracker.delete(id);
+        boolean result = tracker.delete(id);
+        Item itemEmpty = tracker.findById(id);
 
-        Item result = tracker.findById(id);
-        assertThat(result, is(Tracker.EMPTY_ITEM));
+        assertThat(result, is(true));
+        assertThat(itemEmpty, is(Tracker.EMPTY_ITEM));
+    }
+
+    public void testWhenDeleteNotFound() {
+        Item bug = new Item("Bug");
+        tracker.add(bug);
+        String id = bug.getId();
+        boolean result = tracker.delete("123");
+        Item itemNotEmpty = tracker.findById(id);
+
+        assertThat(result, is(false));
+        assertThat(itemNotEmpty, is(bug));
     }
 }
