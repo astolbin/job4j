@@ -3,6 +3,7 @@ package ru.job4j.tracker;
 import junit.framework.TestCase;
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
+import static org.hamcrest.Matchers.nullValue;
 
 public class TrackerTest extends TestCase {
     private Tracker tracker;
@@ -22,7 +23,7 @@ public class TrackerTest extends TestCase {
 
     public void testWhenTrackerNotFoundItemById() {
         Item result = tracker.findById("Test 2");
-        assertThat(result, is(Tracker.EMPTY_ITEM));
+        assertThat(result, is(nullValue()));
     }
 
     public void testWhenFindAllThanReturnAllItems() {
@@ -79,10 +80,9 @@ public class TrackerTest extends TestCase {
         tracker.add(bug);
         String id = bug.getId();
         boolean result = tracker.delete(id);
-        Item itemEmpty = tracker.findById(id);
 
         assertThat(result, is(true));
-        assertThat(itemEmpty, is(Tracker.EMPTY_ITEM));
+        assertThat(tracker.findById(id), is(nullValue()));
     }
 
     public void testWhenDeleteNotFound() {
@@ -90,9 +90,8 @@ public class TrackerTest extends TestCase {
         tracker.add(bug);
         String id = bug.getId();
         boolean result = tracker.delete("123");
-        Item itemNotEmpty = tracker.findById(id);
 
         assertThat(result, is(false));
-        assertThat(itemNotEmpty, is(bug));
+        assertThat(tracker.findById(id), is(bug));
     }
 }

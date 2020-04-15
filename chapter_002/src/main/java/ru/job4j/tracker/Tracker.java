@@ -6,7 +6,6 @@ import java.util.Random;
 public class Tracker {
     private final Item[] items = new Item[100];
     private int position = 0;
-    public static final Item EMPTY_ITEM = new Item("");
 
     public Item add(Item item) {
         item.setId(generateId());
@@ -21,7 +20,7 @@ public class Tracker {
 
     public Item findById(String id) {
         int index = indexOf(id);
-        return index != -1 ? items[index] : EMPTY_ITEM;
+        return index != -1 ? items[index] : null;
     }
 
     public Item[] findAll() {
