@@ -54,10 +54,15 @@ public class Tracker {
         return rsl;
     }
 
-    public void replace(String id, Item itemForReplace) {
+    public boolean replace(String id, Item itemForReplace) {
         int index = indexOf(id);
-        itemForReplace.setId(items[index].getId());
-        items[index] = itemForReplace;
+        boolean result = false;
+        if (index >= 0 && itemForReplace != null) {
+            itemForReplace.setId(items[index].getId());
+            items[index] = itemForReplace;
+            result = true;
+        }
+        return result;
     }
 
     public void delete(String id) {

@@ -59,8 +59,19 @@ public class TrackerTest extends TestCase {
         tracker.add(bug);
         String id = bug.getId();
         Item bugWithDesc = new Item("Bug with description");
-        tracker.replace(id, bugWithDesc);
+        boolean result = tracker.replace(id, bugWithDesc);
+        assertThat(result, is(true));
         assertThat(tracker.findById(id).getName(), is("Bug with description"));
+    }
+
+    public void testWhenReplaceNotFound() {
+        Item bug = new Item("Bug");
+        tracker.add(bug);
+        String id = bug.getId();
+        Item bugWithDesc = new Item("Bug with description");
+        boolean result = tracker.replace("123", bugWithDesc);
+        assertThat(result, is(false));
+        assertThat(tracker.findById(id).getName(), is("Bug"));
     }
 
     public void testWhenDelete() {
