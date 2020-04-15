@@ -22,9 +22,7 @@ public class TrackerTest extends TestCase {
 
     public void testWhenTrackerNotFoundItemById() {
         Item result = tracker.findById("Test 2");
-
-        assertNull(result.getId());
-        assertThat(result.getName(), is(""));
+        assertThat(result, is(Tracker.EMPTY_ITEM));
     }
 
     public void testWhenFindAllThanReturnAllItems() {
@@ -72,7 +70,6 @@ public class TrackerTest extends TestCase {
         tracker.delete(id);
 
         Item result = tracker.findById(id);
-        assertNull(result.getId());
-        assertThat(result.getName(), is(""));
+        assertThat(result, is(Tracker.EMPTY_ITEM));
     }
 }
