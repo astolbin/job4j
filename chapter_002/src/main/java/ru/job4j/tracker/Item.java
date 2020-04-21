@@ -23,4 +23,8 @@ public class Item {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String toString() {
+        return "Item name: " + this.getName() + ", id: " + this.getId();
+    }
 }
