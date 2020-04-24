@@ -32,7 +32,7 @@ public class StartUI {
         }
     }
 
-    private static void findItemByName(Input input, Tracker tracker) {
+    public static void findItemByName(Input input, Tracker tracker) {
         System.out.println("=== Find item by name ====");
         Item[] items = tracker.findByName(input.askStr("Enter name: "));
         for (Item item : items) {
@@ -41,7 +41,7 @@ public class StartUI {
         System.out.println();
     }
 
-    private static void findItemById(Input input, Tracker tracker) {
+    public static void findItemById(Input input, Tracker tracker) {
         System.out.println("=== Find item by Id ====");
         String id = input.askStr("Enter id: ");
         Item item = tracker.findById(id);
@@ -53,7 +53,7 @@ public class StartUI {
         System.out.println();
     }
 
-    private static void deleteItem(Input input, Tracker tracker) {
+    public static void deleteItem(Input input, Tracker tracker) {
         System.out.println("=== Delete Item by id ====");
         String id = input.askStr("Enter id: ");
         if (tracker.delete(id)) {
@@ -64,7 +64,7 @@ public class StartUI {
         System.out.println();
     }
 
-    private static void replaceItem(Input input, Tracker tracker) {
+    public static void replaceItem(Input input, Tracker tracker) {
         System.out.println("=== Edit the Item ====");
         String id = input.askStr("Enter id: ");
         Item item = new Item(input.askStr("Enter name: "));
@@ -76,7 +76,7 @@ public class StartUI {
         System.out.println();
     }
 
-    private static void showItemAll(Tracker tracker) {
+    public static void showItemAll(Tracker tracker) {
         System.out.println("=== Show all items ====");
         Item[] items = tracker.findAll();
         for (Item item : items) {
@@ -85,7 +85,7 @@ public class StartUI {
         System.out.println();
     }
 
-    private static void createItem(Input input, Tracker tracker) {
+    public static void createItem(Input input, Tracker tracker) {
         System.out.println("=== Create a new Item ====");
         Item item = new Item(input.askStr("Enter name: "));
         tracker.add(item);
